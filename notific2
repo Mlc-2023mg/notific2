@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações de Viagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        #notification {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #87CEFA; /* Azul Claro */
+            color: #fff; /* Texto Branco */
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="notification"></div>
+
+<!-- Seu conteúdo HTML aqui -->
+
+<script>
+    function showNotification(message) {
+        var notification = document.getElementById("notification");
+        notification.textContent = message;
+        notification.style.display = "block";
+
+        setTimeout(function() {
+            notification.style.display = "none";
+        }, 5000); // Esconde a notificação após 5 segundos
+    }
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Lista de nomes e sobrenomes fictícios
+    var names = ["Lucas", "Isabela", "Gabriel", "Sophia", "Arthur", "Manuela", "Enzo", "Laura", "Luan", "Julia",
+  "Matheus", "Valentina", "Davi", "Heloisa", "Bernardo", "Cecilia", "Nicolas", "Eduarda", "Rafael", "Lara",
+  "Gustavo", "Bianca", "Pedro", "Beatriz", "Miguel", "Ana Clara", "Henrique", "Melissa", "Felipe", "Livia",
+  "Lucas", "Amanda", "Vinicius", "Larissa", "João", "Yasmin", "Bruno", "Natalia", "Emanuel", "Giovanna",
+  "Caio", "Isadora", "Leonardo", "Camila", "Rodrigo", "Fernanda", "Diego", "Marina", "Carlos", "Mariana",
+  "Erick", "Thais", "Ricardo", "Vitoria", "Alexandre", "Carolina", "Daniel", "Isabel", "André", "Alice",
+  "Fernando", "Luiza", "Thiago", "Gabriela", "Rafaela", "Guilherme", "Natasha", "Igor", "Flavia", "Eduardo",
+  "Clara", "Fábio", "Tatiane", "Renan", "Aline", "Victor", "Priscila", "Juliano", "Vivian", "Joaquim", "Patricia",
+  "Roberto", "Raquel", "Feliciano", "Monica", "Wagner", "Renata", "Isaac", "Thamires", "Dario", "Elaine"];
+    var lastNames = ["Silva", "Oliveira", "Pereira", "Costa", "Santos", "Lima", "Martins", "Ferreira", "Almeida",  "Silva", "Oliveira", "Pereira", "Costa", "Santos", "Lima", "Martins", "Ferreira", "Almeida", "Rodrigues",
+  "Nunes", "Araujo", "Carvalho", "Gomes", "Ribeiro", "Mendes", "Dias", "Teixeira", "Cavalcante", "Pinto", "Melo", "Vieira", "Souza", "Alves", "Cunha", "Barbosa", "Cardoso", "Correia", "Monteiro", "Sales""Rodrigues"];
+
+    // Lista de ações
+    var actions = [
+        "chamou um carro",
+        "iniciou sua corrida",
+        "chegou ao destino",
+        "baixou o app Passageiro",
+        "cadastrou-se como motorista"
+    ];
+
+    // Gerar 100 notificações aleatórias
+    for (var i = 0; i < 100; i++) {
+        var randomNameIndex = getRandomInt(0, names.length - 1);
+        var randomLastNameIndex = getRandomInt(0, lastNames.length - 1);
+        var randomActionIndex = getRandomInt(0, actions.length - 1);
+
+        var randomName = names[randomNameIndex];
+        var randomLastName = lastNames[randomLastNameIndex];
+        var randomAction = actions[randomActionIndex];
+
+        showNotification(randomName + " " + randomLastName + " " + randomAction);
+    }
+</script>
+
+</body>
+</html>
